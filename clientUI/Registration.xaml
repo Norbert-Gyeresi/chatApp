@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientUI.RegistrationPage">
+
+    <StackLayout BackgroundColor="DodgerBlue" Padding="20">
+
+        <Label Text="Bejelentkezés/Regisztráció" FontSize="Title" TextColor="White" HorizontalOptions="CenterAndExpand" Margin="0,20,0,0" />
+
+        <StackLayout>
+            <Label Text="Felhasználónév:" FontSize="Medium" TextColor="White" />
+            <Entry x:Name="UserNameEntry" Placeholder="Írd be a felhasználóneved" BackgroundColor="White" Margin="0,5,0,20" />
+        </StackLayout>
+
+        <StackLayout>
+            <Label Text="Jelszó:" FontSize="Medium" TextColor="White" />
+            <Entry x:Name="PasswordEntry" Placeholder="Írd be a jelszavad" IsPassword="True" BackgroundColor="White" Margin="0,5,0,20" />
+        </StackLayout>
+
+        <Button Text="Regisztráció" Clicked="RegisterButton_Clicked" BackgroundColor="White" TextColor="DodgerBlue" Margin="0,10,0,0" />
+        <Button Text="Bejelentkezés" Clicked="LogInButton_Clicked" BackgroundColor="White" TextColor="DodgerBlue" Margin="0,10,0,0" />
+
+    </StackLayout>
+
+</ContentPage>

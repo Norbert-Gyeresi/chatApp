@@ -1,0 +1,1 @@
+G:\Norbi\szakdolgozat\szakdogacode\chatApp\clientUI\clientUI.csproj;x64
