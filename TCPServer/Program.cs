@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.Linq.Expressions;
@@ -75,7 +75,7 @@ class Server
                             await writer.FlushAsync();
                         }
                     }
-                    if (message.Split('|')[0] == "msg")
+                    if (message.Contains("msg"))
                     {
                         var msgData = message.Split('|')[1].Split(",");
 
@@ -88,23 +88,15 @@ class Server
                 // Küldd az üzenetet minden más kliensnek (kivéve a küldőt)
                 foreach (var otherClient in clients)
                 {
-                    if (otherClient.Key != clientId)
-                    {
-                        StreamWriter writer = new StreamWriter(otherClient.Value.GetStream(), Encoding.UTF8);
-                        await writer.WriteLineAsync($"Kliens ({clientId}): {message}");
-                        await writer.FlushAsync();
-                    }
+                    StreamWriter writer = new StreamWriter(otherClient.Value.GetStream(), Encoding.UTF8);
+                    await writer.WriteLineAsync(message);
+                    await writer.FlushAsync();
                 }
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Hiba a kliens ({clientId}) üzenetkezelése során: {ex.Message}");
-        }
-        finally
-        {
-            clients.TryRemove(clientId, out _);
-            Console.WriteLine($"A kliens ({clientId}) lecsatlakozott.");
         }
     }
 
