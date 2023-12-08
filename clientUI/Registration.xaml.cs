@@ -15,6 +15,7 @@ namespace ClientUI
         private TcpClient client;
         private StreamWriter writer;
         private StreamReader reader;
+        private User user;
 
         public RegistrationPage()
         {
@@ -30,7 +31,7 @@ namespace ClientUI
 
         private async void RegisterButton_Clicked(object sender, System.EventArgs e)
         {
-            // Itt hajtsd vÈgre a regisztr·ciÛs logik·t
+            // Itt hajtsd v√©gre a regisztr√°ci√≥s logik√°t
             string userName = UserNameEntry.Text;
             string password = PasswordEntry.Text;
 
